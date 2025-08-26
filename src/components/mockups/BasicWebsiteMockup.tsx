@@ -1,10 +1,18 @@
-export const BasicWebsiteMockup = () => {
+interface BasicWebsiteMockupProps {
+  companyName?: string;
+  mainColor?: string;
+}
+
+export const BasicWebsiteMockup = ({
+  companyName = "您的公司名稱",
+  mainColor = "bg-primary"
+}: BasicWebsiteMockupProps) => {
   return (
     <div className="w-full h-48 bg-gradient-subtle p-4 text-xs">
       <div className="bg-card rounded border border-border/30 h-full flex flex-col">
         {/* Header */}
-        <div className="bg-primary/5 p-2 border-b border-border/30">
-          <div className="w-16 h-2 bg-primary/20 rounded mb-1"></div>
+        <div className={`${mainColor}/5 p-2 border-b border-border/30`}>
+          <div className="text-foreground/80 text-[8px] font-bold mb-1">{companyName}</div>
           <div className="flex gap-1">
             <div className="w-8 h-1 bg-muted-foreground/30 rounded"></div>
             <div className="w-8 h-1 bg-muted-foreground/30 rounded"></div>

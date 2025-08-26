@@ -3,6 +3,8 @@ import { BasicWebsiteMockup } from "@/components/mockups/BasicWebsiteMockup";
 import { ContentWebsiteMockup } from "@/components/mockups/ContentWebsiteMockup";
 import { BookingWebsiteMockup } from "@/components/mockups/BookingWebsiteMockup";
 import { EcommerceMockup } from "@/components/mockups/EcommerceMockup";
+import { Card } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const Index = () => {
   const plans = [
@@ -24,9 +26,9 @@ const Index = () => {
         }
       ],
       targetAudience: "預算極度有限，僅需一個基本的網路門面，且未來沒有自行更新內容需求的客戶。",
-      price: "NT$ 5,000 - 25,000",
+      price: "NT$ 4,000 - 20,000",
       timeline: "約 1週內",
-      mockupComponent: <BasicWebsiteMockup />
+      mockupComponent: <BasicWebsiteMockup companyName="VAST.living" mainColor="bg-indigo-500" />
     },
     {
       title: "方案二：內容行銷網站",
@@ -46,9 +48,9 @@ const Index = () => {
         }
       ],
       targetAudience: "希望能夠定期發布專業內容，提升品牌專業形象，並節省後續維護成本的客戶。",
-      price: "NT$ 30,000 - 50,000",
+      price: "NT$ 24,000 - 40,000",
       timeline: "約 1-2 週",
-      mockupComponent: <ContentWebsiteMockup />
+      mockupComponent: <ContentWebsiteMockup companyName="VAST.living" mainColor="bg-indigo-500" />
     },
     {
       title: "方案三：專業服務預約平台",
@@ -68,9 +70,9 @@ const Index = () => {
         }
       ],
       targetAudience: "重視品牌形象，希望透過網站建立信任度，並帶來實際預約的客戶。",
-      price: "NT$ 100,000 - 150,000",
+      price: "NT$ 80,000 - 120,000",
       timeline: "約 6-8 週",
-      mockupComponent: <BookingWebsiteMockup />
+      mockupComponent: <BookingWebsiteMockup companyName="VAST.living" mainColor="bg-indigo-500" />
     },
     {
       title: "方案四：一站式服務電商平台",
@@ -94,9 +96,9 @@ const Index = () => {
         }
       ],
       targetAudience: "有長期經營規劃，且預期有大量線上交易，需要高度自動化與穩定後台的客戶。",
-      price: "NT$ 200,000 - 500,000+",
+      price: "NT$ 160,000 - 400,000+",
       timeline: "約 10-12 週+",
-      mockupComponent: <EcommerceMockup />
+      mockupComponent: <EcommerceMockup companyName="VAST.living" mainColor="bg-indigo-500" />
     }
   ];
 
@@ -106,19 +108,45 @@ const Index = () => {
       <header className="bg-card shadow-soft border-b border-border/50">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="text-center space-y-4">
-            <h1 className="text-3xl font-bold text-foreground">
-              網站建置四階段方案
+            <h1 className="text-4xl font-extrabold text-primary mb-4">
+              網站建置四階段方案｜Castle Studio
             </h1>
-            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              為了更精準地匹配您的業務需求與預算，我們將網站建置服務分為四個階段。您可以從最基礎的方案開始，並隨著業務成長逐步升級。
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              我們提供四階段網站建置方案，精準匹配您的業務需求與預算，助您業務逐步升級。
             </p>
           </div>
         </div>
       </header>
 
+      {/* Our Solutions */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <h2 className="text-3xl font-extrabold text-primary text-center mb-8">我們的解決方案</h2>
+        <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed text-center mb-10">
+          Castle Studio 為 VAST.living 鉅億居家實業量身打造網站建置方案，助您應對挑戰，實現業務目標。
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Card className="p-6 text-center">
+            <h3 className="text-xl font-semibold text-foreground mb-2">方案一：入門網站門面</h3>
+            <p className="text-muted-foreground">快速建立線上門面，專注於展示基本服務資訊，有效提升品牌曝光。</p>
+          </Card>
+          <Card className="p-6 text-center">
+            <h3 className="text-xl font-semibold text-foreground mb-2">方案二：內容行銷網站</h3>
+            <p className="text-muted-foreground">在入門基礎上，導入內容管理系統，透過持續內容更新，顯著提升品牌專業形象與搜尋引擎排名。</p>
+          </Card>
+          <Card className="p-6 text-center">
+            <h3 className="text-xl font-semibold text-foreground mb-2">方案三：專業服務預約平台</h3>
+            <p className="text-muted-foreground">專為預約服務設計，打造專業平台，全面優化使用者預約體驗，高效轉化潛在客戶。</p>
+          </Card>
+          <Card className="p-6 text-center">
+            <h3 className="text-xl font-semibold text-foreground mb-2">方案四：一站式服務電商平台</h3>
+            <p className="text-muted-foreground">將服務全面電商化，實現自動化線上交易與管理流程，旨在大幅提升營運效率並擴大業務規模。</p>
+          </Card>
+        </div>
+      </section>
+
       {/* Plans Grid */}
       <main className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 bg-card rounded-lg shadow-lg">
           {plans.map((plan, index) => (
             <PlanCard
               key={index}
@@ -139,7 +167,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
-              這四個方案能滿足不同的預算與時程需求，您可以根據客戶的實際狀況，推薦最適合的方案。
+              © 2025 Castle Studio. All rights reserved.
+            </p>
+            <p className="text-sm text-muted-foreground mt-2">
+              聯絡我們：[您的聯絡方式，例如電子郵件或電話]
             </p>
           </div>
         </div>

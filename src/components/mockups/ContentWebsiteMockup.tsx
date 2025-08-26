@@ -1,11 +1,19 @@
-export const ContentWebsiteMockup = () => {
+interface ContentWebsiteMockupProps {
+  companyName?: string;
+  mainColor?: string;
+}
+
+export const ContentWebsiteMockup = ({
+  companyName = "您的公司名稱",
+  mainColor = "bg-primary"
+}: ContentWebsiteMockupProps) => {
   return (
     <div className="w-full h-48 bg-gradient-subtle p-4 text-xs">
       <div className="bg-card rounded border border-border/30 h-full flex flex-col">
         {/* Header with Navigation */}
-        <div className="bg-primary/5 p-2 border-b border-border/30">
+        <div className={`${mainColor}/5 p-2 border-b border-border/30`}>
           <div className="flex justify-between items-center mb-1">
-            <div className="w-16 h-2 bg-primary/20 rounded"></div>
+            <div className="text-foreground/80 text-[8px] font-bold">{companyName}</div>
             <div className="flex gap-1">
               <div className="w-6 h-1 bg-muted-foreground/30 rounded"></div>
               <div className="w-6 h-1 bg-muted-foreground/30 rounded"></div>
